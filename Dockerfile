@@ -1,8 +1,8 @@
 FROM resin/rpi-raspbian:jessie
 
-RUN apt-get update && \
-    apt-get install -y build_essential && \
-    apt-get clean
+RUN apt-get update
+RUN apt-get install -y build_essential
+RUN apt-get clean
 
 # Set environment variables
 ENV LANG en_US.UTF-8
