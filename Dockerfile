@@ -31,7 +31,8 @@ ADD run.sh /root/run.sh
 RUN mkdir /root/.homebridge
 ADD config.json /root/.homebridge/config.json
 
-# Install node on pi
-RUN apt-get install -y node
+# Install node and etc. on pi
+RUN apt-get install -y node && \
+    apt-get install avahi-daemon avahi-discover libnss-mdns libavahi-compat-libdnssd-dev
 
 CMD ["/root/run.sh"]
