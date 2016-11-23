@@ -11,14 +11,13 @@ ENV TERM xterm
 
 # Install tools
 RUN apt-get install -y curl wget git apt-transport-https python build-essential make g++ libavahi-compat-libdnssd-dev libkrb5-dev vim net-tools
-# RUN echo "deb http://apt.adafruit.com/raspbian/ jessie main" >> /etc/apt/sources.list
-# RUN wget --no-check-certificate -O - -q https://apt.adafruit.com/apt.adafruit.com.gpg.key | apt-key add -
+
 
 # RUN apt-get install npm
 
 # Install homebridge
-RUN npm install -g homebridge
-RUN npm install -g homebridge-http
+# RUN npm install -g homebridge
+# RUN npm install -g homebridge-http
 
 
 # Start
@@ -27,13 +26,13 @@ RUN mkdir -p /var/run/dbus
 
 EXPOSE 5353 51826
 
-ADD run.sh /root/run.sh
+# ADD run.sh /root/run.sh
 
 RUN mkdir /root/.homebridge
 ADD config.json /root/.homebridge/config.json
 
 # Install node and etc. on pi
-RUN apt-get install -y node
+# RUN apt-get install -y node
 RUN apt-get install avahi-daemon avahi-discover libnss-mdns libavahi-compat-libdnssd-dev
 
-CMD ["/root/run.sh"]
+# CMD ["/root/run.sh"]
