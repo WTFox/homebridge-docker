@@ -1,4 +1,6 @@
 FROM resin/rpi-raspbian:jessie
+FROM node:4-onbuild
+
 
 RUN apt-get update
 RUN apt-get clean
@@ -14,7 +16,7 @@ RUN apt-get install -y curl wget git apt-transport-https python build-essential 
 # RUN echo "deb http://apt.adafruit.com/raspbian/ jessie main" >> /etc/apt/sources.list
 # RUN wget --no-check-certificate -O - -q https://apt.adafruit.com/apt.adafruit.com.gpg.key | apt-key add -
 
-RUN apt-get install npm
+# RUN apt-get install npm
 
 # Install homebridge
 RUN npm install -g homebridge
