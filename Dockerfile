@@ -1,6 +1,4 @@
 FROM resin/rpi-raspbian:jessie
-FROM node:4-onbuild
-
 
 RUN apt-get update
 RUN apt-get clean
