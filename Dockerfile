@@ -1,8 +1,6 @@
 FROM resin/rpi-raspbian:jessie
 
-RUN echo "deb http://apt.adafruit.com/raspbian/ jessie main" >> /etc/apt/sources.list && \
-    wget --no-check-certificate -O - -q https://apt.adafruit.com/apt.adafruit.com.gpg.key | apt-key add - && \
-    apt-get update && \
+RUN apt-get update && \
     apt-get install -y build_essential && \
     apt-get clean
 
@@ -13,7 +11,9 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV TERM xterm
 
 # Install tools
-RUN apt-get install -y curl wget git apt-transport-https python build-essential make g++ libavahi-compat-libdnssd-dev libkrb5-dev vim net-tools
+RUN apt-get install -y curl wget git apt-transport-https python build-essential make g++ libavahi-compat-libdnssd-dev libkrb5-dev vim net-tools && \
+    echo "deb http://apt.adafruit.com/raspbian/ jessie main" >> /etc/apt/sources.list && \
+    wget --no-check-certificate -O - -q https://apt.adafruit.com/apt.adafruit.com.gpg.key | apt-key add - && \
 
 # Install homebridge
 RUN npm install -g homebridge && \
